@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //source: https://answers.unity.com/questions/12322/drag-gameobject-with-mouse.html
-[RequireComponent(typeof(MeshCollider))]
+
 public class PointControlledByMouse : MonoBehaviour
 {
 

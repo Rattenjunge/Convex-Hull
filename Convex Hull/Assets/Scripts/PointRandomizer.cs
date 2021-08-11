@@ -52,7 +52,6 @@ public static class PointRandomizer
                     x = Random.Range(spawnArea[0][0], spawnArea[1][0]);
                     y = Random.Range(spawnArea[0][1], spawnArea[1][1]);
                     n++;
-                    Debug.Log(n);
                 }
                 else
                 {
