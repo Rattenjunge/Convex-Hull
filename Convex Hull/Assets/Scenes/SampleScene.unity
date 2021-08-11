@@ -243,8 +243,9 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   spawnAmount: 200
+  maxIterations: 30
   pointList: []
-  minDistance: 0.5
+  minDistance: 0.494
 --- !u!4 &1071190743
 Transform:
   m_ObjectHideFlags: 0

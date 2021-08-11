@@ -57,7 +57,7 @@ public static class JarvisMarchAlgorithm
         int counter = 0;
         while (true)
         {
-            //Adding the startposition again after two iterations wwill terminate the alorithm down the line
+            //Adding the startposition again after two iterations will terminate the alorithm down the line
             //Probably adding the startpoint later so the algorythm cannot find it at the beginning
             if (counter == 2)
             {
@@ -70,7 +70,7 @@ public static class JarvisMarchAlgorithm
             Vector2 a = new Vector2(currentPoint.transform.position.x, currentPoint.transform.position.y);
             Vector2 b = new Vector2(nextPoint.transform.position.x, nextPoint.transform.position.y);
 
-            //Check if there is a point to the right of ab, if so, the point will be teh new b 
+            //Check if there is a point to the right of ab, if so, the point will be the new b 
             for (int i = 0; i < points.Count; i++)
             {
                 //Skip the point we picked randomly

@@ -7,9 +7,10 @@ public class PointSpawner : MonoBehaviour
     [SerializeField] private GameObject pointPref;
     [SerializeField] private Camera gameCamera;
     [SerializeField] private Vector2[] spawnArea = new Vector2[2];
-    [SerializeField, Range(3,200)] private int spawnAmount = 8;
+    [SerializeField, Range(3,400)] private int spawnAmount = 8;
+    [SerializeField] int maxIterations = 30;
     public List<GameObject> pointList = new List<GameObject>();
-    [SerializeField,Range(0.1f,0.5f)] private float minDistance = 0.5f;
+    [SerializeField,Range(0.1f,1f)] private float minDistance = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,14 +18,8 @@ public class PointSpawner : MonoBehaviour
         for (int i = 0; i < spawnAmount; i++)
         {
             pointList.Add(Instantiate(pointPref, new Vector3(0, 0, 0), Quaternion.identity));
-            pointList = PointRandomizer.RandomizePosition(pointList, spawnArea, minDistance);
+            pointList = PointRandomizer.RandomizePosition(pointList, spawnArea, minDistance, maxIterations);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void CalculateSpawnArea()

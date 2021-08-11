@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class PointRandomizer 
+public static class PointRandomizer
 {
-    public static List<GameObject> RandomizePosition(List<GameObject> pointList, Vector2[] spawnArea, float minDistance)
+    public static List<GameObject> RandomizePosition(List<GameObject> pointList, Vector2[] spawnArea, float minDistance, int maxIterations)
     {
         List<Vector2> forbiddenSpawnLocations = new List<Vector2>();
         for (int i = 0; i < pointList.Count; i++)
@@ -19,6 +19,11 @@ public static class PointRandomizer
             int n = 0;
             while (!spawnAccepted)
             {
+                if (n >= maxIterations)
+                {
+                    spawnAccepted = true;
+                    break;
+                }
                 if (forbiddenSpawnLocations.Count == 0)
                 {
                     pointList[i].transform.position = new Vector2(x, y);
@@ -60,10 +65,5 @@ public static class PointRandomizer
         }
         return pointList;
 
-    }
-
-    public static List<GameObject> RandomizeSeed(List<GameObject> starList)
-    {
-        return null;
     }
 }
