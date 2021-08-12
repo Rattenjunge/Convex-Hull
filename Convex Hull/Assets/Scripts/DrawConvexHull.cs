@@ -17,14 +17,15 @@ public class DrawConvexHull : MonoBehaviour
             return;
         }
         ConvexHull = JarvisMarchAlgorithm.GetConvexHull(pointSpawner.pointList);
-        if (ConvexHull.Count > 0)
+        if (ConvexHull.Count == 0)
         {
-
-            lineRend.positionCount = ConvexHull.Count;
-            for (int i = 0; i < ConvexHull.Count; i++)
-            {
-                lineRend.SetPosition(i, ConvexHull[i].transform.position);
-            }
+            return;
+        }
+        lineRend.positionCount = ConvexHull.Count;
+        for (int i = 0; i < ConvexHull.Count; i++)
+        {
+            lineRend.SetPosition(i, ConvexHull[i].transform.position);
         }
     }
 }
+

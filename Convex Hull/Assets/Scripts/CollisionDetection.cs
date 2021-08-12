@@ -61,8 +61,7 @@ public class CollisionDetection : MonoBehaviour
             float cross = tb_y * ta_x - tb_x * ta_y;
 
             bool clockwise = (cross < 0) ? true : false;
-            //Debug.Log("Degree of each triangle " + (Mathf.Acos((B * B + C * C - A * A) / (2.0f * B * C))) * Mathf.Rad2Deg + " A: " + A + " B: " + B + " C: " + C);
-            //bool clockwise = false;
+
             if (clockwise)
             {
                 degree += (Mathf.Acos((B * B + C * C - A * A) / (2.0f * B * C))) * Mathf.Rad2Deg;
@@ -73,7 +72,6 @@ public class CollisionDetection : MonoBehaviour
             }
             
         }
-        Debug.Log(Mathf.Abs(Mathf.Round(degree)) - 360);
         if (Mathf.Abs(Mathf.Round(degree)) - 360 >= 0)
         {
             return true;

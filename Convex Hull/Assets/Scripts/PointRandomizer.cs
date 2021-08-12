@@ -14,7 +14,7 @@ public static class PointRandomizer
             float y = Random.Range(spawnArea[0][1], spawnArea[1][1]);
             bool spawnAccepted = false;
 
-            //WARNING: high numbers of planets and big distances between planets end up in endless loops. Keep that in mind.
+            //WARNING: high numbers of points and big distances between points end up in very long calculation time. Keep that in mind.
             // n provides overview how often "while" has to run trhough
             int n = 0;
             while (!spawnAccepted)

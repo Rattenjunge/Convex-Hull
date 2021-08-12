@@ -17,7 +17,7 @@ public class PointSpawner : MonoBehaviour
         CalculateSpawnArea();
         for (int i = 0; i < spawnAmount; i++)
         {
-            pointList.Add(Instantiate(pointPref, new Vector3(0, 0, 0), Quaternion.identity));
+            pointList.Add(Instantiate(pointPref, Vector3.zero, Quaternion.identity));
             pointList = PointRandomizer.RandomizePosition(pointList, spawnArea, minDistance, maxIterations);
         }
     }
@@ -31,12 +31,10 @@ public class PointSpawner : MonoBehaviour
 
         //Make SpawnArea smaller for better spawn results (borderclipping)
         //top left x&y (so they are closer to the center of the frame)
-        spawnArea[0][0] += 2;
-        spawnArea[0][1] -= 2;
+        spawnArea[0][0] += 1.5f;
+        spawnArea[0][1] -= 1.5f;
         //bottom right x&y -2 (so they are closer to the center of the frame)
-        spawnArea[1][0] -= 2;
-        spawnArea[1][1] += 2;
-
-        Debug.Log(spawnArea[0] + ":" + spawnArea[1]);
+        spawnArea[1][0] -= 1.5f;
+        spawnArea[1][1] += 1.5f;
     }
 }
