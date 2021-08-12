@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//source: https://answers.unity.com/questions/12322/drag-gameobject-with-mouse.html
-
 public class PointControlledByMouse : MonoBehaviour
 {
 
@@ -14,8 +12,9 @@ public class PointControlledByMouse : MonoBehaviour
     {
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
+        //offset saves the current position to the mousepointer, so it doesn't "jump" if it is clicked on
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-
+        Debug.Log(offset);
     }
 
     void OnMouseDrag()
